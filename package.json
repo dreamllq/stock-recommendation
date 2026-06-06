@@ -5,9 +5,25 @@
   "packageManager": "pnpm@11.5.2",
   "scripts": {
     "dev": "concurrently \"pnpm --filter server start:dev\" \"pnpm --filter client dev\"",
-    "build": "pnpm --filter server build && pnpm --filter client build"
+    "build": "pnpm --filter server build && pnpm --filter client build",
+    "prepare": "husky"
   },
   "devDependencies": {
-    "concurrently": "^10.0.3"
-  }
+    "concurrently": "^10.0.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.7"
+  },
+  "lint-staged": {
+    "client/**/*.{ts,vue}": [
+      "pnpm --filter client lint"
+    ],
+    "server/**/*.ts": [
+      "pnpm --filter server lint"
+    ]
+  },
+  "onlyBuiltDependencies": [
+    "@prisma/engines",
+    "prisma",
+    "unrs-resolver"
+  ]
 }
