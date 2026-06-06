@@ -1,0 +1,13 @@
+{
+  "name": "stock-recommendation",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@11.5.2",
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter server start:dev\" \"pnpm --filter client dev\"",
+    "build": "pnpm --filter server build && pnpm --filter client build"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
